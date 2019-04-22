@@ -4,8 +4,9 @@
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0",
-    "ngx-clipboard": "12.0.0",
-    "ngx-pagination": "3.2.1",
-    "ngx-markdown": "7.1.5"
+    "@sheetbase/angular": "^1.0.0",
+    "@sheetbase/client": "^1.0.0",
+    "@sheetbase/models": "^1.0.0",
+    "ngx-pagination": "3.2.1"
   }
 }

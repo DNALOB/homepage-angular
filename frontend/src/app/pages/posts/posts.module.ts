@@ -1,26 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
-import { SafePipeModule } from '@sheetbase/angular';
 
-import { PreviewPage } from './preview.page';
+import { PostsPage } from './posts.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: PreviewPage
+    component: PostsPage
   }
 ];
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
-    SafePipeModule,
+    RouterModule.forChild(routes)
   ],
-  declarations: [PreviewPage]
+  declarations: [PostsPage]
 })
-export class PreviewPageModule {}
+export class PostsPageModule {}

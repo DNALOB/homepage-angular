@@ -11,7 +11,6 @@ import {
   SheetbaseService,
   AppService,
   NavService,
-  CurrencyService,
   DateService,
 } from '@sheetbase/angular';
 
@@ -31,7 +30,6 @@ export class AppComponent {
     private sheetbaseService: SheetbaseService,
     private appService: AppService,
     public navService: NavService,
-    private currencyService: CurrencyService,
     private dateService: DateService,
   ) {
     this.initializeApp();
@@ -54,14 +52,7 @@ export class AppComponent {
     // setup nav service
     this.navService
       .setDefaultMetas(APP_OPTIONS.metas)
-      .setRouter(this.router, {
-        NavigationEnd: (event: any) => {
-          (<any>window).gtag('config', 'UA-136711513-1', { 'page_path': event.urlAfterRedirects });
-        },
-      });
-
-    // setup currency
-    this.currencyService.init(APP_OPTIONS.currency, APP_OPTIONS.locale);
+      .setRouter(this.router);
 
     // setup date
     this.dateService.init(APP_OPTIONS.date, APP_OPTIONS.locale);
