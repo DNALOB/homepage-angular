@@ -1,0 +1,13 @@
+@import '../../../../projects/homepage/src/lib/theming/index.scss';
+
+main {
+  // 6rem = margin | 65px = header height | 127px = footer height
+  min-height: calc(100vh - 6rem - 65px - 127px);
+  max-width: 576px;
+  margin: auto;
+
+  @media (min-width: 576px) {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  }
+}

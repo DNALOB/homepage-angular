@@ -1,0 +1,45 @@
+<header>
+
+  <nav>
+
+    <div class="left">
+
+      <div class="brand">
+        <img class="logo" src="assets/images/logo.png" (click)="goHome.emit(); showMenu=false;" />
+        <h1 class="name" [innerHtml]="name" (click)="goHome.emit(); showMenu=false;"></h1>
+      </div>
+
+      <div class="menu" [ngClass]="{ active: showMenu }">
+        <div class="main">
+
+          <ul class="body">
+            <li *ngFor="let item of links">
+              <a *ngIf="!!item.handler" [href]="item.href" (click)="item.handler(); showMenu=false; false;">{{ item.text }}</a>
+              <a *ngIf="!item.handler" [href]="item.href" [target]="item.target">{{ item.text }}</a>
+            </li>
+          </ul>
+
+          <div class="foot">
+            <ul class="socials">
+              <li *ngFor="let item of socials">
+                <a [href]="item.href" [class]="item.class"><img [src]="item.icon"></a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="right">
+
+      <div class="toggler">
+        <button (click)="toggle()"><img src="https://unpkg.com/@mdi/svg@latest/svg/menu.svg" /></button>
+      </div>
+
+    </div>
+
+  </nav>
+
+</header>

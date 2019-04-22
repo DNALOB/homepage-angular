@@ -1,0 +1,46 @@
+<app-header></app-header>
+
+<ion-content>
+
+  <main padding>
+    
+    <div *ngIf="notFound">
+      <homepage-oops (goHome)="nav.navigate(['/'])"></homepage-oops>
+    </div>
+
+    <div *ngIf="!notFound && !product">
+      <homepage-skeleton></homepage-skeleton>
+    </div>
+
+    <section class="product" *ngIf="!notFound && !!product">
+
+      <homepage-product
+        [product]="product"
+        (goCheckout)="nav.navigate(['/checkout', $event.$key], { product: $event })"
+      ></homepage-product>
+
+    </section>
+
+    <section class="suggested" *ngIf="!notFound && !!suggestedProducts && suggestedProducts.length > 0">
+
+      <homepage-title
+        title="Similar themes"
+      ></homepage-title>
+
+      <homepage-products
+        [products]="suggestedProducts"
+        (view)="nav.navigate(['/theme', $event.$key], { product: $event })"
+        (goCheckout)="nav.navigate(['/checkout', $event.$key], { product: $event })"
+      ></homepage-products>
+
+      <div class="actions">
+        <a href="#" [routerLink]="['/themes']">More themes</a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <app-footer></app-footer>
+
+</ion-content>

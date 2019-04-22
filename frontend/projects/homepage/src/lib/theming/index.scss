@@ -1,0 +1,20 @@
+@import './variables.scss';
+@import '~@sheetbase/angular/theming/index.scss';
+
+@mixin codeblock {
+  display: block;
+  border-radius: app-size('radius');
+  background: app-color('dark');
+  color: app-color('medium');
+  padding: .5rem 1rem;
+  font-size: .9rem;
+}
+
+@mixin codeline {
+  display: inline-block;
+  border-radius: app-size('radius');
+  border: #{app-size('border')} solid #{app-color('light')};
+  color: #e83e8c;
+  padding: .5rem;
+  font-size: .9rem;
+}

@@ -1,0 +1,36 @@
+@import '../../../../projects/homepage/src/lib/theming/index.scss';
+
+main {
+  // 4rem = margin | 65px = header height | 127px = footer height
+  min-height: calc(100vh - 4rem - 65px - 127px);
+  
+  .product {
+    @include max-width(576px);
+  }
+  
+  .suggested {
+    margin-top: 2rem;
+    
+    .actions {
+      text-align: center;
+      padding: 2rem 0 0;
+      
+      a {
+        @include button($key: 'primary', $style: 'outline');
+        text-decoration: none;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    margin-bottom: 4rem;
+  }
+
+  @media (min-width: 992px) {
+    
+    .product {
+      @include max-width(992px);
+    }
+
+  }
+}

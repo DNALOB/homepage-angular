@@ -1,0 +1,30 @@
+@import '../../../../projects/homepage/src/lib/theming/index.scss';
+
+.article {
+
+  .title {
+    display: flex;
+    width: 100%;
+
+    h1 {
+      margin-top: 0;
+      font-weight: 700;
+      font-size: 2rem;
+    }
+
+    .links {
+      text-align: right;
+      margin-left: 1rem;
+
+      a {
+        @include button-icon($key: 'medium', $style: 'clear');
+        opacity: .5;
+        min-width: 2.5rem;
+
+        &:hover {
+          opacity: .7;
+        }
+      }
+    }
+  }
+}

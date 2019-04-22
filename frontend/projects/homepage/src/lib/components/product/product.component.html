@@ -1,0 +1,73 @@
+<div class="product">
+
+  <div class="display">
+
+    <div class="image">
+      <img [src]="product.image">
+    </div>
+
+  </div>
+
+  <div class="main">
+
+    <div class="head">
+
+      <div class="left">
+        <span class="badge official" *ngIf="product.brand === 'sheetbase'">Official</span>
+        <span class="badge free" *ngIf="!product.price">Free</span>
+        <span class="badge premium" *ngIf="!!product.price">Premium</span>
+      </div>
+
+      <div class="right">
+        <a class="repo" target="_blank"
+          *ngIf="!!product['meta'] && !!product['meta'].repoUrl"
+          [href]="product['meta'].repoUrl"
+        >
+          <img src="https://unpkg.com/@mdi/svg@latest/svg/github-circle.svg" />
+        </a>
+        <a class="db" target="_blank"
+          *ngIf="!!product['meta'] && !!product['meta'].dbUrl"
+          [href]="product['meta'].dbUrl"
+        >
+          <img src="https://unpkg.com/@mdi/svg@latest/svg/grid.svg" />
+        </a>
+      </div>
+
+    </div>
+
+    <div class="body">
+
+      <h1 class="title" [innerHtml]="product.title"></h1>
+      <p class="description">{{ product.description }}</p>
+      
+      <div class="note" *ngIf="!product.price">
+        <code>sheetbase start &lt;projectName&gt; <strong>{{ product.$key }}</strong></code>
+      </div>
+
+    </div>
+
+    <div class="foot">
+
+      <div class="left">
+        <a class="view" target="_blank"
+          *ngIf="!product.price && !!product['meta'] && !!product['meta'].repoUrl"
+          [href]="product['meta'].repoUrl"
+        >Download</a>
+        <a class="buy" target="_blank"
+          *ngIf="!!product.price"
+          [href]="'/checkout/' + product.$key"
+          (click)="goCheckout.emit(product); $event.stopPropagation(); false;"
+        >Buy &middot; {{ currencyService.format(product.price) }}</a>
+      </div>
+
+      <div class="right">
+        <a class="extra" target="_blank"
+          [href]="'/preview/' + product.$key"
+        >Preview</a>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

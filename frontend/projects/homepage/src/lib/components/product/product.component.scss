@@ -1,0 +1,118 @@
+@import '../../theming/index.scss';
+
+.product {
+
+  .display {
+
+    .image {
+      
+      img {
+        border-radius: app-size('radius');
+        border: #{app-size('border')} solid #{app-color('light')};
+        width: 100%;
+      }
+    }
+  }
+
+  .main {
+
+    .head {
+      display: flex;
+      margin: 1rem 0 0;
+
+      .left {
+        flex-grow: 1;
+
+        .badge {
+          background: app-color('light');
+          border-radius: app-size('radius');
+          color: app-color('dark');
+          font-size: .8rem;
+          padding: .2rem .5rem;
+          margin-right: .25rem;
+          display: inline-block;
+
+          &.official {
+            background: app-color('tertiary');
+            color: app-color('light');
+          }
+          
+          &.free {
+            // light
+          }
+          
+          &.premium {
+            background: app-color('warning');
+          }
+        }
+      }
+
+      .right {
+
+        a {
+          display: inline-block;
+          margin-left: .5rem;
+        }
+      }
+    }
+
+    .body {
+
+      .title {
+        font-size: 2rem;
+      }
+
+      .description {
+
+      }
+
+      .note {
+
+        code {
+          @include codeline;
+        }
+      }
+    }
+
+    .foot {
+      display: flex;
+      margin-top: 2rem;
+  
+      .left {
+        flex-grow: 1;
+
+        .view {
+          @include button('dark');
+        }
+
+        .buy {
+          @include button('secondary');
+        }
+      }
+
+      .right {
+
+        .extra {
+          @include button('light');
+        }
+      }
+    }
+  }
+
+  @media (min-width: 992px) {
+    display: flex;
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+
+    .display {
+      width: 50%;
+    }
+    
+    .main {
+      width: 50%;
+      padding-left: 2rem;
+    }
+
+  }
+
+}

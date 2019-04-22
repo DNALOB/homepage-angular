@@ -1,0 +1,24 @@
+<app-header></app-header>
+
+<ion-content>
+
+  <main padding>
+
+    <div *ngIf="notFound">
+      <homepage-oops (goHome)="nav.navigate(['/'])"></homepage-oops>
+    </div>
+
+    <div *ngIf="!notFound && !page">
+      <homepage-skeleton></homepage-skeleton>
+    </div>
+
+    <div class="page" *ngIf="!notFound && !!page">
+      <h1 class="title" [innerHtml]="page.title"></h1>
+      <homepage-content [content]="page.content"></homepage-content>
+    </div>
+
+  </main>
+
+  <app-footer></app-footer>
+
+</ion-content>

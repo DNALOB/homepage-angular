@@ -1,0 +1,61 @@
+@import '../../theming/index.scss';
+
+.features {
+  @include list-flex;
+
+  .feature {
+    @include item-flex(2, .5rem);
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 1.5rem 1rem;
+    border: #{app-size('border')} solid #{app-color('light')};
+    border-radius: app-size('radius');
+
+    .thumbnail {
+
+      img {
+        width: 64px;
+        height: auto;
+      }
+    }
+
+    .content {
+
+      h3 {
+        margin-top: 1rem;
+        margin-bottom: .5rem;
+        font-size: 1.2rem;
+      }
+
+      p {
+        margin: 0;
+        color: app-color('medium');
+      }
+    }
+  }
+
+  @media (min-width: 480px) {
+    .feature {
+      @include item-flex(3, .5rem);
+    }    
+  }
+
+  @media (min-width: 768px) {
+    .feature {
+      @include item-flex(4, .5rem);
+    }    
+  }
+
+  @media (min-width: 992px) {
+    .feature {
+      @include item-flex(5, 1rem);
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .feature {
+      @include item-flex(6, 1rem);
+    }
+  }
+
+}

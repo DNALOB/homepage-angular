@@ -1,0 +1,16 @@
+@import '../../theming/index.scss';
+
+.section-head {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+
+  .title {
+    font-family: app-type('head');
+    font-size: 1.7rem;
+  }
+
+  .subtitle {
+    margin: 0;
+    color: app-color('medium');
+  }
+}

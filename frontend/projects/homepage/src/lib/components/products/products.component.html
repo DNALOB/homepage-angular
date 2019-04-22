@@ -1,0 +1,81 @@
+<ul class="products">
+  <li class="product" *ngFor="let item of products | paginate: paginationConfigs">
+
+    <a [href]="'/theme/' + item.$key" (click)="view.emit(item); false;">
+
+      <div class="thumbnail">
+        <img [src]="item.thumbnail">
+      </div>
+
+      <div class="content">
+
+        <h3 class="title" [innerHtml]="item.title"></h3>
+
+        <div class="description">{{ item.description }}</div>
+
+        <div class="meta">
+
+          <div class="left">
+            
+            <a class="view"
+              *ngIf="!item.price"
+              [href]="'/theme/' + item.$key"
+              (click)="view.emit(item); $event.stopPropagation(); false;"
+            >Download</a>
+
+            <a class="buy"
+              *ngIf="!!item.price"
+              [href]="'/checkout/' + item.$key"
+              (click)="goCheckout.emit(item); $event.stopPropagation(); false;"
+            >Buy &middot; {{ currencyService.format(item.price) }}</a>
+
+          </div>
+    
+          <div class="right">
+
+            <a class="extra" target="_blank"
+              [href]="'/preview/' + item.$key"
+              (click)="$event.stopPropagation();"
+            >Preview</a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </a>
+
+  </li>      
+</ul>
+
+
+<div class="pagination" *ngIf="showPagination">
+
+  <pagination-template
+    #paginator="paginationApi"
+    maxSize="5"
+    [id]="paginationConfigs.id"
+    (pageChange)="changePage.emit($event); paginationConfigs.currentPage = $event">
+  
+    <div class="main">
+  
+      <div class="previous" [class.disabled]="paginator.isFirstPage()">
+        <button *ngIf="!paginator.isFirstPage()" (click)="paginator.previous()"> < </button>
+      </div>
+  
+      <div class="page" *ngFor="let page of paginator.pages" [ngClass]="{ active: paginator.getCurrent() === page.value }">
+        <button (click)="paginator.setCurrent(page.value)" *ngIf="paginator.getCurrent() !== page.value">{{ page.label }}</button>
+        <button *ngIf="paginator.getCurrent() === page.value">{{ page.label }}</button>
+      </div>
+  
+      <div class="next" [class.disabled]="paginator.isLastPage()">
+        <button *ngIf="!paginator.isLastPage()" (click)="paginator.next()"> > </button>
+      </div>
+  
+    </div>
+  
+  </pagination-template>
+
+</div>

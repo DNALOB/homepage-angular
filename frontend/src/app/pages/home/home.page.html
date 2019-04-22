@@ -1,0 +1,148 @@
+<app-header></app-header>
+
+<ion-content #homeContent>
+
+  <main>
+
+    <section class="jumbotron">
+
+      <homepage-jumbotron
+        title="Sheetbase"
+        tagline="Build modern websites fast and free!"
+        actionText="Explore now"
+        image="https://sheetbase.dev/assets/images/explain.png"
+        (doAction)="nav.scrollTo(homeContent, featuresSection)"
+      ></homepage-jumbotron>
+
+    </section>
+
+    <section class="features" #featuresSection>
+
+      <homepage-title
+        title="Features"
+        subTitle="You gonna love it &lt;3"
+      ></homepage-title>
+
+      <div class="content">
+
+        <homepage-features
+          [features]="features"
+        ></homepage-features>
+
+      </div>
+
+    </section>
+
+    <section class="start" padding>
+
+      <homepage-title
+        title="How to start?"
+        subTitle="In 3 simple steps"
+      ></homepage-title>
+
+      <div class="content">
+
+        <ul class="steps">
+
+          <li class="step first">
+            <p><strong>Step 1</strong>: Install <a href="https://github.com/sheetbase/cli" target="_blank">Sheetbase CLI</a></p>
+            <code>npm i -g @sheetbase/cli</code>
+            <p>Then grant access to your Google account, for automatically setup the project.</p>
+            <code>sheetbase google connect</code>
+          </li>
+
+          <li class="step second">
+            <p><strong>Step 2</strong>: Start a new project.</p>
+            <code>sheetbase start &lt;projectName&gt;</code>
+            <p>The command will create a project with the <a href="#" [routerLink]="['/theme', 'basic-angular']">Basic Angular</a> theme. See more <a href="#" [routerLink]="['/themes']">themes</a>.</p>
+          </li>
+
+          <li class="step third">
+            <p><strong>Step 3</strong>: Awesome! Now building something great.</p>
+            <p>Need help? Please see <a href="#" [routerLink]="['/docs']">the docs</a>.</p>
+            <p>P/S: Getting started even faster with ready-to-use themes, see below. :)</p>
+          </li>
+
+        </ul>
+        
+      </div>
+
+    </section>
+    
+    <section class="themes" padding>
+
+      <homepage-title
+        title="Themes"
+        subTitle="Check out some ready-to-use themes"
+      ></homepage-title>
+
+      <homepage-products
+        [products]="products"
+        (view)="nav.navigate(['/theme', $event.$key], { product: $event })"
+        (goCheckout)="nav.navigate(['/checkout', $event.$key], { product: $event })"
+      ></homepage-products>
+
+      <div class="actions">
+        <a href="#" [routerLink]="['/themes']">More themes</a>
+      </div>
+
+    </section>
+
+    <section class="tools" padding>
+
+      <homepage-title
+        title="Tools"
+        subTitle="More helps here"
+      ></homepage-title>
+
+      <div class="content">
+
+        <div class="left">
+          <h3>Sheetbase CLI</h3>
+          <p>Official CLI for working with Sheetbase projects.</p>
+          <code>npm i -g @sheetbase/cli</code>
+        </div>
+  
+        <div class="right">
+          <h3>Sheetbase Tools</h3>
+          <p>A Google Sheets add-on to better work with Spreadsheet.</p>
+          <a href="https://chrome.google.com/webstore/detail/ssdb-tools/iaocncapggdnlhmmjeahlejgcccgglmm?utm_source=permalink" target="_blank">Install add-on</a>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="faqs" padding>
+
+        <homepage-title
+          title="FAQs"
+          subTitle="Know more about Sheetbase"
+        ></homepage-title>
+        
+        <homepage-faqs
+          [faqs]="faqs"
+        ></homepage-faqs>
+  
+      </section>
+
+    <section class="contact" padding>
+
+      <homepage-title
+        title="Get in touch!"
+        subTitle="Let us know your thought"
+      ></homepage-title>
+
+      <homepage-contact
+        [email]="appService.options?.email"
+        [facebook]="appService.options?.facebook"
+        (sendMessage)="sendMessage($event)"
+      ></homepage-contact>
+
+    </section>
+
+  </main>
+
+  <app-footer></app-footer>
+
+</ion-content>

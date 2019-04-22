@@ -1,0 +1,14 @@
+<ul class="features">
+  <li class="feature" *ngFor="let item of features">
+
+    <div class="thumbnail">
+      <img [src]="item.thumbnail" [alt]="item.title">
+    </div>
+
+    <div class="content">
+      <h3 [innerHtml]="item.title"></h3>
+      <p>{{ item.content }}</p>
+    </div>
+
+  </li>
+</ul>

@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<ion-content>
+
+  <main padding>
+
+    <div>
+      <h3>Contact us</h3>
+      <p>Need help? Please send us message.</p>
+    </div>
+
+    <div style="margin-top: 2rem;">
+
+      <homepage-contact
+        [email]="appService.options?.email"
+        [facebook]="appService.options?.facebook"
+        (sendMessage)="sendMessage($event)"
+      ></homepage-contact>
+    
+    </div>
+
+  </main>
+
+  <app-footer></app-footer>
+
+</ion-content>

@@ -1,0 +1,13 @@
+:host {
+
+  display: none;
+
+  homepage-footer {
+    padding-top: 100px;
+  }
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+
+}

@@ -1,0 +1,73 @@
+// http://ionicframework.com/docs/theming/
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+@import '../projects/homepage/src/lib/theming/index.scss';
+
+.nav-loading {
+  @include nav-loading;
+}
+
+article.dynamic-content {
+  @include dynamic-content;    
+}
+
+app-article .dynamic-content {
+
+  h1 {
+    display: none !important;
+
+    & + p {
+      font-size: 1.2em !important;
+    }
+  }
+
+  h2 {
+    font-size: 1.5em !important;
+    color: #020814 !important;
+    padding-top: 2em;
+    margin: 1em 0;
+    font-weight: bold;
+  }
+  
+  h3 {
+    font-size: 1.2em !important;
+    color: #4e5b6a !important;
+    margin: 1em 0;
+  }
+  
+  h4 {
+    font-size: 1em !important;
+    margin: 1em 0;
+  }
+
+  p, li {
+    color: #4e5b6a !important;
+    font-size: 1rem !important;
+    line-height: 1.7;
+  }
+
+  code {
+    background: #f5f7fa;
+    color: #020814;
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: bold;
+    font-size: .9rem;
+  }
+
+  pre code {
+    background: none;
+    color: #c5c8c6;
+    font-weight: normal;
+  }
+
+}

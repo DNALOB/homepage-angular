@@ -1,0 +1,171 @@
+@import '../../theming/index.scss';
+
+header {
+  border-bottom: #{app-size('border')} solid #{app-color('light')};
+  padding: .5rem 1rem;
+
+  nav {
+    display: flex;
+    align-items: center;
+    padding: 0;
+
+    .left {
+      flex-grow: 1;
+
+      .brand {
+        display: flex;
+        align-items: center;
+
+        .logo {
+          cursor: pointer;
+          width: 2rem;
+          height: 2rem;
+        }
+
+        .name {
+          cursor: pointer;
+          display: inline-block;
+          margin: 0 0 0 .7rem;
+          font-weight: 700;
+          font-size: 1.3rem;
+        }
+      }
+      
+      .menu {
+        transition: all .1s ease;
+        overflow: hidden;
+        opacity: 0;
+        z-index: -999;
+        border-bottom: #{app-size('border')} solid rgba(255, 255, 255, 0);
+        position: absolute;
+        top: 3.3rem;
+        background: #FFF;
+        width: 100%;
+        margin-left: -1rem;
+        
+        .main {
+          
+          .body {
+            @include list;
+            padding-top: 1rem;
+            
+            li {
+              width: 100%;
+              
+              a {
+                display: block;
+                width: 100%;
+                padding: .5rem 1rem;
+                text-align: center;
+                color: app-color('dark');
+                text-transform: uppercase;
+              }
+            }
+          }
+
+          .foot {
+            padding: 1rem;
+            text-align: center;
+
+            .socials {
+              @include list-inline;
+
+              li {
+                margin: 0 .3rem;
+
+                a {
+                  @include button-icon('medium', 'small', 'outline');
+                  opacity: .5;
+                  width: 2.5rem;
+                  height: 2.5rem;
+                  border: none;
+
+                  &:hover {
+                    opacity: .7;
+                  }
+                }
+              }
+            }
+          }
+        }
+        
+        &.active {
+          opacity: 1;
+          z-index: 999;
+          border-bottom: #{app-size('border')} solid #{app-color('light')};
+        }
+      }
+    }
+
+    .right {
+
+      .toggler {
+
+        button {
+          @include button-icon($style: 'clear');
+          opacity: .5;
+          padding: 0;
+
+          img {
+            width: 2.5rem;
+            height: 2.5rem;
+          }
+        }
+      }
+
+    }
+
+  }
+
+  @media (min-width: 768px) {
+    padding: 1rem .5rem 1rem 1.5rem;
+  
+    nav {
+      display: flex;
+
+      .left {
+        flex-grow: 1;
+        display: flex;
+
+        .brand {
+          flex-grow: 1;
+        }
+        
+        .menu {
+          position: relative;
+          top: 0;
+          opacity: 1;
+          width: auto;
+          overflow: visible;
+          border: none;
+          margin: 0;
+          z-index: 999;
+          
+          .main {
+
+            .body {
+              display: flex;
+              padding-top: 0;
+
+              li {
+                width: auto;
+              }
+            }
+
+            .foot {
+              display: none;
+            }
+          }
+        }
+      }
+
+      .right {
+
+        .toggler {
+          display: none;
+        }
+      }
+    }     
+  }
+
+}

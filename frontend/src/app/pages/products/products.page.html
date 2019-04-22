@@ -1,0 +1,51 @@
+<app-header></app-header>
+
+<ion-content #productsContent>
+
+  <main padding>
+
+    <section class="filter">
+
+      <div class="head">
+
+        <div class="title">
+          <strong class="text">Filter theme</strong>
+          <span class="badge">{{ products().length }}</span>
+        </div>
+
+      </div>
+
+      <div class="search">
+        <input type="text" placeholder="Search for theme" [(ngModel)]="searchStr">
+      </div>
+  
+      <ul class="categories">
+        <li class="category" *ngFor="let item of categories" [ngClass]="{ selected: !!category && item.$key === category.$key }">
+          <a [href]="'/category/' + item.$key" (click)="nav.scrollTo(productsContent, productsSection); selectCategory(item); false;">{{ item.title }}</a>
+        </li>
+      </ul>
+
+      <div class="message" *ngIf="!!category">
+        <p>Themes were filtered by category "<strong>{{ category.title }}</strong>".</p>
+        <button (click)="selectCategory(category)">Clear filter</button>
+      </div>
+
+    </section>
+
+    <section class="products" #productsSection>
+
+      <homepage-products
+        [showPagination]="true"
+        [products]="products()"
+        (view)="nav.navigate(['/theme', $event.$key], { product: $event })"
+        (goCheckout)="nav.navigate(['/checkout', $event.$key], { product: $event })"
+        (changePage)="nav.scrollTo(productsContent, productsSection)"
+      ></homepage-products>
+
+    </section>
+
+  </main>
+
+  <app-footer></app-footer>
+
+</ion-content>

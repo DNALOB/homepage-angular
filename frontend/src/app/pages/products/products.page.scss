@@ -1,0 +1,142 @@
+@import '../../../../projects/homepage/src/lib/theming/index.scss';
+
+main {
+  // 4rem = margin | 65px = header height | 127px = footer height
+  min-height: calc(100vh - 4rem - 65px - 127px);
+
+  .filter {
+
+    .head {
+      @include max-width(576px);
+      display: flex;
+      margin-bottom: 1rem;
+
+      .title {
+        flex-grow: 1;
+        display: flex;
+
+        .text {
+          flex-grow: 1;
+          font-size: 1.3rem;
+          font-weight: normal;
+        }
+  
+        .badge {
+          background: app-color('primary');
+          border-radius: app-size('radius');
+          color: #FFF;
+          font-size: .8rem;
+          padding: .2rem .5rem;
+        }
+      }
+
+      .layout {
+        text-align: right;
+
+        a {
+          @include button-icon($key: 'light', $size: 'small');
+          padding: .2rem .5rem;
+          opacity: .3;
+
+          img {
+            width: 1rem;
+          }
+          
+          &:first-child {
+            border-radius: #{app-size('radius')} 0 0 #{app-size('radius')};
+
+          }
+          &:last-child {
+            border-radius: 0 #{app-size('radius')} #{app-size('radius')} 0;
+          }
+
+          &.active {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .search {
+      @include max-width(576px);
+      
+      input {
+        @include input;
+        border: none;
+        background: app-color('light');
+      }
+    }
+        
+    .categories {
+      @include list-inline;
+      @include max-width(992px);
+      padding: 1rem 0;
+
+      .category {
+        margin: .5rem .25rem 0;
+
+        a {
+          text-decoration: none;
+          @include button($key: 'medium', $style: 'outline', $size: 'small');
+        }
+
+        &.selected {
+
+          a {
+            @include button($key: 'dark', $size: 'small');
+          }
+        }
+      }
+    }
+
+    .message {
+      @include max-width(576px);
+      padding: 1rem;
+      border-radius: app-size('radius');
+      border: #{app-size('border')} solid #{app-color('warning')};
+
+      p {
+        margin-top: 0;
+      }
+
+      button {
+        @include button($key: 'dark');
+      }
+    }
+  
+  }
+
+  .products {
+    margin: auto;
+    padding-top: 1rem;
+  }
+
+  @media (min-width: 576px) {
+
+    .filter {
+
+      .categories {
+
+        .category {
+
+          a {
+            @include button($key: 'medium', $style: 'outline');
+          }
+  
+          &.selected {
+  
+            a {
+              @include button($key: 'dark');
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+  @media (min-width: 768px) {
+    margin-bottom: 4rem;
+  }
+
+}

@@ -1,0 +1,154 @@
+@import '../../theming/index.scss';
+
+.products {
+  @include list-flex;
+
+  .product {
+    width: 100%;
+    margin: 1rem 0;
+    border: #{app-size('border')} solid #CCC;
+    border-radius: app-size('radius');
+
+    & > a {
+      width: 100%;
+      color: app-color('dark');
+      display: block;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    .thumbnail {
+      overflow: hidden;
+      margin: .5rem .5rem 0 .5rem;
+
+      img {
+        width: 100%;
+        display: block;
+        transition: all .5s ease;
+
+        &:hover {
+          transform: scale(1.3);
+        }
+      }
+    }
+
+    .content {
+      padding: 1rem;
+
+      .title {
+        font-size: 1.3rem;
+        margin-top: 0;
+        margin-bottom: .5rem;
+        font-weight: normal;
+      }
+      
+      .description {
+        display: block;
+        color: app-color('medium');
+        margin: 0;
+      }
+  
+      .meta {
+        padding: 1.5rem 0 0;
+        display: flex;
+  
+        .left {
+          flex-grow: 1;
+  
+          .view {
+            @include button('primary');
+          }
+
+          .buy {
+            @include button('secondary');
+          }
+        }
+  
+        .right {
+  
+          .extra {
+            @include button('light');
+          }
+        }
+      } 
+    }
+
+  }
+
+  @media (min-width: 576px) {
+    .product {
+      @include item-flex(2, .5rem);
+    }
+  }
+
+  @media (min-width: 992px) {
+    .product {
+      @include item-flex(3, .5rem);
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .product {
+      @include item-flex(4, .5rem);
+    }
+  }
+
+}
+
+.pagination {
+  padding: 2rem 0 1rem;
+
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      @include button($key: 'medium', $style: 'outline', $size: 'small');
+      border-radius: 0;
+      margin-right: .2rem;
+    }
+
+    .page {
+
+      &.active {
+
+        button {
+          @include button('dark');
+          border-radius: 0;
+          border: #{app-size('border')} solid #{app-color('dark')};
+        }
+      }
+    }
+
+  }
+
+  @media (min-width: 480px) {
+    
+    .main {
+
+      button {
+        @include button($key: 'medium', $style: 'outline');
+        border-radius: 0;
+        margin-right: .5rem;
+      }
+
+      .page {
+
+        &.active {
+  
+          button {
+            @include button($key: 'dark', $size: 'large');
+            border-radius: 0;
+            border: #{app-size('border')} solid #{app-color('dark')};
+          }
+        }
+      }
+
+    }
+
+  }
+
+}

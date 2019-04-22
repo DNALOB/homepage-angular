@@ -1,0 +1,4 @@
+<div class="content">
+  <homepage-skeleton *ngIf="!content"></homepage-skeleton>
+  <article *ngIf="!!content" class="dynamic-content" [innerHtml]="content | safe"></article>
+</div>

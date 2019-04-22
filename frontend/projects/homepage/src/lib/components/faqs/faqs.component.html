@@ -1,0 +1,8 @@
+<ul class="faqs">
+  <li class="faq" *ngFor="let item of faqs; let i = index;">
+
+    <h3><span>{{ i + 1 }}.</span><strong>{{ item.title }}</strong></h3>
+    <p>{{ item.content }}</p>
+
+  </li>
+</ul>

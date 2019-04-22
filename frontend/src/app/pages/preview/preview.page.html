@@ -1,0 +1,38 @@
+<ion-header *ngIf="!!product">
+
+  <ion-toolbar color="dark">
+
+    <ion-title>{{ product['meta'].title || 'Sheetbase Theme' }}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button target="_blank"
+        *ngIf="!!product['meta'] && !!product['meta'].dbUrl"
+        [href]="product['meta'].dbUrl"
+      >
+        <ion-icon name="grid"></ion-icon>
+      </ion-button>
+      <ion-button target="_blank"
+        *ngIf="!product.price && !!product['meta'] && !!product['meta'].repoUrl"
+        [href]="product['meta'].repoUrl"
+      >
+        <ion-icon name="logo-github"></ion-icon>
+      </ion-button>
+      <ion-button disabled="true" style="color: #777 !important;"> | </ion-button>
+      <ion-button [routerLink]="['/themes']">Browse Themes</ion-button>
+    </ion-buttons>
+  
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="!product" style="text-align: center; padding-top: 3rem;">
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <div class="iframe" *ngIf="!!product">
+    <iframe [src]="product['meta'].previewUrl | safe: false" allowfullscreen frameBorder="0"></iframe>  
+  </div>
+
+</ion-content>

@@ -1,0 +1,195 @@
+@import '../../../../projects/homepage/src/lib/theming/index.scss';
+
+main {
+  // 4rem = margin | 65px = header height | 127px = footer height
+  min-height: calc(100vh - 4rem - 65px - 127px);
+
+  section {
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+  }
+
+  .jumbotron {
+    padding: 0 !important;
+  }
+
+  .features {
+
+    .content {
+      margin-top: 1rem;
+      padding: 0 .5rem;
+    }
+  }
+  
+  .start {
+    background: app-color(light);
+    
+    .content {
+      @include max-width(992px);
+      margin-top: 1rem;
+
+      .steps {
+        @include list;
+
+        .step {
+          background: #FFF;
+          border-radius: app-size('radius');
+          border: #{app-size('border')} solid #{app-color('light')};
+          margin-bottom: 1rem;
+          padding: 0 1rem 1rem;
+
+          p {
+            line-height: 1.5;
+
+            &:first-child {
+              font-size: 1.2rem;
+              font-family: app-type('head');
+              font-weight: 300;
+
+              strong {
+                text-decoration: underline;
+              }
+            }
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+
+          code {
+            @include codeline;
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+  }
+
+  .themes {
+
+    .actions {
+      text-align: center;
+      padding: 2rem 0 0;
+      
+      a {
+        @include button($key: 'primary', $size: 'large', $style: 'outline');
+        text-decoration: none;
+      }
+    }
+  }
+
+  .tools {
+    background: app-color(light);
+
+    .content {
+      @include max-width(992px);
+      text-align: center;
+
+      p {
+        color: app-color('medium');
+      }
+      
+      .left {
+
+        code {
+          @include codeline;
+        }
+      }
+      
+      .right {
+        margin-top: 2rem;
+        
+        a {
+          @include button($key: 'warning', $style: 'outline');
+        }
+      }
+    }
+  }
+
+  .faqs {
+    @include max-width(992px);
+  }
+  
+  .contact {
+    @include max-width(576px);
+  }
+
+  @media (min-width: 576px) {
+
+    .start {
+
+      .content {
+
+        .steps {
+          @include list-flex;
+
+          .step {
+            @include item-flex(2, .5rem);
+          }
+        }
+      }
+    }
+
+    .tools {
+      
+      .content {
+        display: flex;
+
+        .left, .right {
+          @include item-flex(2, .5rem);
+        }
+
+        .right {
+          margin-top: 0;
+        }
+      }
+    }
+
+  }
+
+  @media (min-width: 768px) {
+    margin-bottom: 4rem;
+
+    .features {
+
+      .content {
+        margin-top: 2rem;
+      }
+    }
+
+  }
+
+  @media (min-width: 992px) {
+
+    .features {
+      padding-top: 2rem;
+    }
+
+    .start {
+
+      .content {
+
+        .steps {
+
+          .step {
+            @include item-flex(3, .5rem);
+
+            &:last-child {
+              margin-bottom: 1rem;
+            }
+          }
+        }
+      }
+    }
+
+    .themes {
+      padding-top: 2rem;
+    }
+
+  }
+
+}

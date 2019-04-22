@@ -1,0 +1,14 @@
+<div class="jumbotron" [ngStyle]="{'background-image': 'url(' + image + ')'}">
+
+  <div class="inner">
+
+    <h1 [innerHtml]="title"></h1>
+    <p>{{ tagline }}</p>
+
+    <div class="action">
+      <button (click)="doAction.emit()">{{ actionText }}</button>
+    </div>
+
+  </div>
+
+</div>
