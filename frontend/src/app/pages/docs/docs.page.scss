@@ -1,0 +1,31 @@
+@import '../../../../projects/homepage/src/lib/theming/index.scss';
+
+main {
+  // 6rem = margin | 65px = header height | 127px = footer height
+  min-height: calc(100vh - 6rem - 65px - 127px);
+  @include max-width(768px);
+
+  .detail {
+    padding-top: 2rem;
+    padding-top: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    margin-bottom: 4rem;
+    display: flex;
+
+    .toc {
+      width: 35%;
+      min-width: 12rem;
+      max-width: 12rem;
+      padding-top: 1rem;
+    }
+
+    .detail {
+      flex-grow: 1;
+      width: 65%;
+    }
+
+  }
+
+}

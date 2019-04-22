@@ -7,6 +7,7 @@
     "@sheetbase/angular": "^1.0.0",
     "@sheetbase/client": "^1.0.0",
     "@sheetbase/models": "^1.0.0",
+    "ngx-markdown": "7.1.5",
     "ngx-pagination": "3.2.1"
   }
 }

@@ -55,11 +55,6 @@ export class FooterComponent implements OnInit {
           class: 'twitter',
           href: twitter,
         },
-        {
-          icon: 'https://unpkg.com/@mdi/svg@latest/svg/github-circle.svg',
-          class: 'github',
-          href: github,
-        },
       ];
     });
   }
